@@ -7,13 +7,11 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true
     },
     title: {
-        type: DataTypes.STRING,
-        field: 'title'
+        type: DataTypes.STRING(255),
     },
     slug:
       {
-          type: DataTypes.STRING,
-          field: 'slug'
+          type: DataTypes.STRING(255),
       }
   });
   return categories;
