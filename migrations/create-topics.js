@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('topics', {
+    return queryInterface.createTable("topics", {
       topics_id: {
         allowNull: false,
         autoIncrement: true,
@@ -26,31 +26,23 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      post_categoryID: { 
+      post_categoryID: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'categories',
-          key: 'id'
+          model: "categories",
+          key: "id"
         }
       },
-      post_id: { 
+      post_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'posts',
-          key: 'id'
+          model: "posts",
+          key: "id"
         }
-      },
-      classMethods: {
-          associate: function(models)   {
-              //associations defined here
-              models.posts.hasMany(models.categories);
-              models.categories.belongsTo(models.posts);
-              models.topics.belongsTo(models.posts);
-          }
-      } 
+      }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('posts');
+    return queryInterface.dropTable("posts");
   }
 };
