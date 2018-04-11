@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT(500) //Do I want to specify how long the description is?? //
     },
     content: {
-      type: DataTypes.TEXT() //Do I want to specify how long the description is?? //
+      type: DataTypes.TEXT() //Is is the correct format for a long form text field?? //
     },
     topics_id: {
       type: DataTypes.STRING,
@@ -31,7 +31,20 @@ module.exports = (sequelize, DataTypes) => {
         model: "categories",
         key: "id"
       }
+    },
+    users_id: {
+      type: DataTypes.STRING,
+      references: {
+        model: "users",
+        key: "id"
+      }
     }
   });
+  posts.associate = function(models) {
+    models.posts.hasMany(models.topics, { foreignKey: "topics_id" });
+    models.posts.hasMany(models.categories, { foreignKey: "categories_id" });
+    models.posts.belongsTo(models.users, { foreignKey: "users_id" });
+    models.posts.hasMany(models.comments, { foreignKey: "comments_id" });
+  };
   return posts;
 };
