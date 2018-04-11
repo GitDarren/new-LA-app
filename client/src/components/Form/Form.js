@@ -4,35 +4,22 @@ const Form = props => (
   <form>
     <div className="form-group">
       <h4>
-        <strong>Topic</strong>
+        <strong>Title</strong>
       </h4>
       <input
         className="form-control"
-        type="text"
-        value={props.q}
-        name="q"
+        value={props.title}
+        name="title"
         onChange={props.handleInputChange}
         required
       />
       <h4>
-        <strong>Start Year</strong>
+        <strong>Description Here!</strong>
       </h4>
       <input
         className="form-control"
-        type="number"
-        value={props.start_year}
-        name="start_year"
-        onChange={props.handleInputChange}
-        required
-      />
-      <h4>
-        <strong>End Year</strong>
-      </h4>
-      <input
-        className="form-control"
-        type="number"
-        value={props.end_year}
-        name="end_year"
+        value={props.description}
+        name="description"
         onChange={props.handleInputChange}
         required
       />

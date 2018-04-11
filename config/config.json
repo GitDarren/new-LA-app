@@ -1,15 +1,15 @@
 {
   "development": {
-    "username": "homestead",
-    "password": "secret",
-    "database": "new_la",
+    "username": "root",
+    "password": "root",
+    "database": "laforum_db",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "port": 33060
+    "port": 3306
   },
   "test": {
-    "username": "homestead",
-    "password": "secret",
+    "username": "root",
+    "password": "root",
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql",
