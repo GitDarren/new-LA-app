@@ -12,13 +12,15 @@ class Home extends Component {
   state = {
     articles: [],
     q: "",
-    start_year: "",
-    end_year: "",
+    title: "",
+    description: "",
     message: "Search For Articles To Begin!"
   };
 
   handleInputChange = event => {
     const { name, value } = event.target;
+    console.log("This is the value", value);
+    console.log("This is the name", name);
     this.setState({
       [name]: value
     });
@@ -43,7 +45,24 @@ class Home extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    this.getArticles();
+    // this.getArticles();
+    console.log(
+      "This is the state ------------------------------------------------",
+      this.state
+    );
+    const newPost = {
+      id: 1,
+      title: this.state.title,
+      description: this.state.description,
+      content: "this is the content",
+      slug: "this is the slug"
+    };
+    API.savePost(newPost).then(responseFromBackend => {
+      console.log(
+        "This is our response from the back end",
+        responseFromBackend
+      );
+    });
   };
 
   handleArticleSave = id => {
@@ -71,13 +90,13 @@ class Home extends Component {
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
                 q={this.state.q}
-                start_year={this.state.start_year}
-                end_year={this.state.end_year}
+                title={this.state.title}
+                description={this.state.description}
               />
             </Panel>
           </Col>
         </Row>
-        <Row>
+        {/* <Row>
           <Col size="md-12">
             <Panel title="Results">
               {this.state.articles.length ? (
@@ -99,7 +118,7 @@ class Home extends Component {
               )}
             </Panel>
           </Col>
-        </Row>
+        </Row> */}
         <Footer />
       </Container>
     );

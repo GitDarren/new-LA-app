@@ -13,10 +13,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING(255)
     },
     description: {
-      type: DataTypes.TEXT(500) //Do I want to specify how long the description is?? //
+      type: DataTypes.STRING(500) //Do I want to specify how long the description is?? //
     },
     content: {
-      type: DataTypes.TEXT() //Is is the correct format for a long form text field?? //
+      type: DataTypes.STRING(500) //Is is the correct format for a long form text field?? //
     }
     // topics_id: {
     //   type: DataTypes.STRING,
