@@ -1,6 +1,6 @@
 "use strict";
 module.exports = (sequelize, DataTypes) => {
-  var posts = sequelize.define("users", {
+  var users = sequelize.define("users", {
     id: {
       type: DataTypes.INTEGER,
       field: "id",
@@ -47,28 +47,26 @@ module.exports = (sequelize, DataTypes) => {
         isINT: true,
         len: [10]
       }
-    },
-    topics_id: {
-      type: DataTypes.STRING,
-      references: {
-        model: "topics",
-        key: "id"
-      }
-    },
-    categories_id: {
-      type: DataTypes.STRING,
-      references: {
-        model: "categories",
-        key: "id"
-      }
     }
+    // topics_id: {
+    //   type: DataTypes.STRING,
+    //   references: {
+    //     model: "topics",
+    //     key: "id"
+    //   }
+    // },
+    // categories_id: {
+    //   type: DataTypes.STRING,
+    //   references: {
+    //     model: "categories",
+    //     key: "id"
+    //   }
+    // }
   });
 
-  users.associate = function(models) {
-    models.users.hasMany(models.topics, { foreignKey: "topics_id" });
-    models.users.hasMany(models.categories, { foreignKey: "categories_id" });
-    models.users.hasMany(models.posts, { foreignKey: "posts_id" });
-    models.users.hasMany(models.comments, { foreignKey: "comments_id" });
-  };
+  // users.associate = function(models) {
+  //   models.users.hasMany(models.posts, { foreignKey: "users_id" });
+  //   models.users.hasMany(models.comments, { foreignKey: "users_id" });
+  // };
   return users;
 };

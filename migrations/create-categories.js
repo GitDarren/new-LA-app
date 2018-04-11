@@ -22,13 +22,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      classMethods: {
-        associate: function(models) {
-          //associations defined here
-          models.categories.hasMany(models.posts);
-          models.categories.hasMany(models.topics);
-        }
-      }
     });
   },
   down: (queryInterface, Sequelize) => {

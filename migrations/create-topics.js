@@ -33,16 +33,23 @@ module.exports = {
           key: "id"
         }
       },
-      post_id: {
+      posts_id: {
         type: DataTypes.INTEGER,
         references: {
           model: "posts",
+          key: "id"
+        }
+      },
+      users_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: "users",
           key: "id"
         }
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable("posts");
+    return queryInterface.dropTable("topics");
   }
 };

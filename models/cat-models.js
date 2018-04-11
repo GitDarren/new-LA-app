@@ -11,19 +11,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     slug: {
       type: DataTypes.STRING(255)
-    },
-    users_id: {
-      type: DataTypes.STRING,
-      references: {
-        model: "users",
-        key: "id"
-      }
     }
   });
 
-  categories.associate = function(models) {
-    models.categories.hasMany(models.posts, { foreignKey: "posts_id" });
-    models.categories.belongsTo(models.users, { foreignKey: "users_id" });
-  };
+  // categories.associate = function(models) {
+  //   // models.categories.belongsTo(models.posts, { foreignKey: "categories_id" });
+  // };
   return categories;
 };

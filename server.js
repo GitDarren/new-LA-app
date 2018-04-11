@@ -15,10 +15,11 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
-// Set up promises with mongoose
-// Connect to the Mongo DB
+const db = require("./models");
 
-// Start the API server
-app.listen(PORT, () =>
-  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
-);
+db.sequelize.sync({ force: true }).then(function() {
+  // Start the API server
+  app.listen(PORT, () =>
+    console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
+  );
+});
