@@ -40,23 +40,19 @@ module.exports = {
           key: 'id'
         }
       },
-      posts.associate = function(models) {
-          
-              //associations defined here
-              models.posts.hasMany(models.categories);
-              models.categories.belongsTo(models.posts);
-              models.topics.belongsTo(models.posts);
-      } 
-    });
+      parent_id: {
+        type: DataTypes.INTEGER,
+        allowNull: true
+      },
 
+    
     posts.associate = function(models) {
           
         //associations defined here
         models.posts.hasMany(models.categories, {foreignKey: 'post_id'});
         models.categories.belongsTo(models.posts);
         models.topics.belongsTo(models.posts);
-} 
-  },
+},
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('posts');
   }
