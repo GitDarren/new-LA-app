@@ -15,26 +15,36 @@ module.exports = {
     });
   },
   create: function(req, res) {
+    console.log(req.body);
     db.categories
       .create({ title: req.body.title, slug: req.body.slug })
-      .then(() => response.send("success"))
-      .catch(() => {
-        response.status(422).send(fail);
-        res.send(result);
+      .then(() => res.send("success"))
+      .catch(err => {
+        console.log(err);
+        res.status(422).send("fail");
       });
   },
   update: function(req, res) {
     db.categories
-      .update({ title: req.body.title, slug: req.body.slug })
-      .then(() => response.send("success"))
-      .catch(() => {
-        response.status(422).send(fail);
+      .update(
+        { title: req.body.title, slug: req.body.slug },
+        { where: { id: req.params.id } }
+      )
+      .then(() => res.send("success"))
+      .catch(err => {
+        console.log(err);
+        res.status(422).send("fail");
         res.send(result);
       });
   },
   remove: function(req, res) {
-    db.categories.destroy().then(result => {
-      res.send(result);
-    });
+    db.categories
+      .remove({ id: req.params.id })
+      .then(() => response.send("success"))
+      .catch(err => {
+        console.log(err);
+        response.status(422).send("fail");
+        res.send(result);
+      });
   }
 };
