@@ -1,6 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  var comments = sequelize.define('comments', {
+  var posts = sequelize.define('posts', {
+    title: DataTypes.STRING,
     slug: DataTypes.STRING,
     content: DataTypes.STRING
   }, {
@@ -10,5 +11,5 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
-  return comments;
+  return posts;
 };
