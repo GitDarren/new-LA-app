@@ -8,29 +8,30 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      id: {
-        type: Sequelize.INTEGER
-      },
       username: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(100),
+        allowNull: false,
+        unique: true
       },
       password: {
-        type: Sequelize.STRING
-      },
-      title: {
-        type: Sequelize.STRING
-      },
-      slug: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(255),
+        allowNull: true
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(255),
+        allowNull: false,
+        unique: true,
+        validate: {
+          isEmail: true
+        }
       },
       firstName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(100),
+        allowNull: true
       },
       lastName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(100),
+        allowNull: true
       },
       phone: {
         type: Sequelize.STRING
@@ -45,7 +46,11 @@ module.exports = {
         type: Sequelize.STRING
       },
       zip: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        validate: {
+          isInt: true
+        }
       },
       createdAt: {
         allowNull: false,

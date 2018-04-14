@@ -4,22 +4,23 @@ module.exports = (sequelize, DataTypes) => {
     "users",
     {
       id: {
-        type: DataTypes.INTEGER,
-        field: "id",
-        primaryKey: true
+        allowNull: true,
+        autoIncrement: true,
+        primaryKey: true,
+        type: DataTypes.INTEGER
       },
       username: {
         type: DataTypes.STRING(100),
-        allowNull: false,
+        allowNull: true,
         unique: true
       },
       password: {
         type: DataTypes.STRING(255),
-        allowNull: false
+        allowNull: true
       },
       email: {
         type: DataTypes.STRING(255),
-        allowNull: false,
+        allowNull: true,
         unique: true,
         validate: {
           isEmail: true
@@ -27,28 +28,38 @@ module.exports = (sequelize, DataTypes) => {
       },
       firstName: {
         type: DataTypes.STRING(100),
-        allowNull: false
+        allowNull: true
       },
       lastName: {
         type: DataTypes.STRING(100),
-        allowNull: false
+        allowNull: true
       },
-      phone: DataTypes.STRING,
-      street: DataTypes.STRING,
-      city: DataTypes.STRING,
+      phone: {
+        type: DataTypes.STRING
+      },
+      street: {
+        type: DataTypes.STRING
+      },
+      city: {
+        type: DataTypes.STRING
+      },
       state: {
-        type: DataTypes.STRING,
-        validate: {
-          len: [2]
-        }
+        type: DataTypes.STRING
       },
       zip: {
         type: DataTypes.INTEGER,
         allowNull: true,
         validate: {
-          isINT: true,
-          len: [10]
+          isInt: true
         }
+      },
+      createdAt: {
+        allowNull: false,
+        type: DataTypes.DATE
+      },
+      updatedAt: {
+        allowNull: false,
+        type: DataTypes.DATE
       }
       // topics_id: {
       //   type: DataTypes.STRING,
