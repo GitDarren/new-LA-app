@@ -47,11 +47,11 @@ module.exports = {
   },
   remove: function(req, res) {
     db.posts
-      .remove({ id: req.params.id })
-      .then(() => response.send("success"))
+      .destroy({ where: { id: req.params.id } })
+      .then(() => res.send("success"))
       .catch(err => {
         console.log(err);
-        response.status(422).send("fail");
+        res.status(422).send("fail");
         res.send(result);
       });
   }
