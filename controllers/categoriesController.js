@@ -1,22 +1,25 @@
 const db = require("../models");
 
-// Defining methods for commentsController
+// Defining methods for categoriesController
 module.exports = {
   findAll: function(req, res) {
-    db.comments.findAll().then(result => {
-      console.log("We got this shit - comments");
-      console.log(result);
-      res.send(result);
-    });
+    db.categories
+      .findAll({
+        include: [db.posts]
+      })
+      .then(result => {
+        res.send(result);
+      })
+      .catch(err => res.send(err));
   },
   findById: function(req, res) {
-    db.comments.findById(req.query.id).then(result => {
+    db.categories.findById(req.query.id).then(result => {
       res.send(result);
     });
   },
   create: function(req, res) {
     console.log(req.body);
-    db.comments
+    db.categories
       .create({ slug: req.body.slug, content: req.body.content })
       .then(() => res.send("success"))
       .catch(err => {
@@ -25,7 +28,7 @@ module.exports = {
       });
   },
   update: function(req, res) {
-    db.comments
+    db.categories
       .update(
         { slug: req.body.slug, content: req.body.content },
         { where: { id: req.params.id } }
@@ -38,7 +41,7 @@ module.exports = {
       });
   },
   remove: function(req, res) {
-    db.comments
+    db.categories
       .destroy({ where: { id: req.params.id } })
       .then(() => res.send("success"))
       .catch(err => {
