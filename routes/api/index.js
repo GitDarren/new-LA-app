@@ -2,7 +2,8 @@ const router = require("express").Router();
 const categoryRoutes = require("./categories");
 const tagRoutes = require("./posttags");
 const postRoutes = require("./posts");
-const usersRouters = require("./users");
+const userRouters = require("./users");
+const commentRouter = require("./comments");
 
 var db = require("../../models");
 
@@ -10,7 +11,8 @@ var db = require("../../models");
 router.use("/categories", categoryRoutes);
 router.use("/posttags", tagRoutes);
 router.use("/posts", postRoutes);
-router.use("/users", usersRouters);
+router.use("/users", userRouters);
+router.use("/comments", commentRouter);
 
 router.route("/savepost").post(function(req, res) {
   console.log("We saved the post!", db);
