@@ -1,23 +1,27 @@
 const db = require("../models");
 
-// Defining methods for categoriesController
+// Defining methods for postsController
 module.exports = {
   findAll: function(req, res) {
-    db.categories.findAll().then(result => {
-      console.log("We got this shit - categories");
+    db.posts.findAll().then(result => {
+      console.log("We got all the posts!!!!!");
       console.log(result);
       res.send(result);
     });
   },
   findById: function(req, res) {
-    db.categories.findById(req.query.id).then(result => {
+    db.posts.findById(req.query.id).then(result => {
       res.send(result);
     });
   },
   create: function(req, res) {
     console.log(req.body);
-    db.categories
-      .create({ title: req.body.title, slug: req.body.slug })
+    db.posts
+      .create({
+        title: req.body.title,
+        slug: req.body.slug,
+        content: req.body.content
+      })
       .then(() => res.send("success"))
       .catch(err => {
         console.log(err);
@@ -25,9 +29,13 @@ module.exports = {
       });
   },
   update: function(req, res) {
-    db.categories
+    db.posts
       .update(
-        { title: req.body.title, slug: req.body.slug },
+        {
+          title: req.body.title,
+          slug: req.body.slug,
+          content: req.body.content
+        },
         { where: { id: req.params.id } }
       )
       .then(() => res.send("success"))
@@ -38,7 +46,7 @@ module.exports = {
       });
   },
   remove: function(req, res) {
-    db.categories
+    db.posts
       .destroy({ where: { id: req.params.id } })
       .then(() => res.send("success"))
       .catch(err => {

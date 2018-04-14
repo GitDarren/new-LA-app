@@ -14,6 +14,7 @@ class Home extends Component {
     q: "",
     title: "",
     description: "",
+    topics: [],
     message: "Search For Articles To Begin!"
   };
 
@@ -23,6 +24,12 @@ class Home extends Component {
     console.log("This is the name", name);
     this.setState({
       [name]: value
+    });
+  };
+
+  handleTopics = topics => {
+    this.setState({
+      topics: topics.split(",").trim()
     });
   };
 
@@ -85,12 +92,13 @@ class Home extends Component {
             </Jumbotron>
           </Col>
           <Col size="md-12">
-            <Panel title="Query" icon="newspaper-o">
+            <Panel title="Enter Your Blog Post" icon="newspaper-o">
               <Form
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
                 q={this.state.q}
                 title={this.state.title}
+                topics={this.state.topics}
                 description={this.state.description}
               />
             </Panel>

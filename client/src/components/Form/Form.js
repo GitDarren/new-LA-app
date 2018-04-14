@@ -1,5 +1,6 @@
 import React from "react";
 
+console.log(this.state);
 const Form = props => (
   <form>
     <div className="form-group">
@@ -13,13 +14,32 @@ const Form = props => (
         onChange={props.handleInputChange}
         required
       />
+      <select name="category" onChange={props.handleInputChange} required>
+        <option defaultValue={true} disabled>
+          Select a category...
+        </option>
+        <option>Baseball</option>
+        <option>Basketball</option>
+        <option>Football</option>
+        <option>Hockey</option>
+        <option>Tennis</option>
+      </select>
+
       <h4>
-        <strong>Description Here!</strong>
+        <strong>Write yo shit Here!</strong>
       </h4>
-      <input
+      <textarea
         className="form-control"
         value={props.description}
         name="description"
+        onChange={props.handleInputChange}
+        required
+      />
+
+      <input
+        className="form-control"
+        value={props.topics}
+        name="topics"
         onChange={props.handleInputChange}
         required
       />

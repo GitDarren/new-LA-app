@@ -1,14 +1,14 @@
 const router = require("express").Router();
 const categoryRoutes = require("./categories");
-const topicsRoutes = require("./topics");
-const postsRoutes = require("./posts");
+const tagRoutes = require("./tags");
+const postRoutes = require("./posts");
 
 var db = require("../../models");
 
 // Live Athlete Forum routes
 router.use("/categories", categoryRoutes);
-router.use("/topics", topicsRoutes);
-router.use("/posts", postsRoutes);
+router.use("/tags", tagRoutes);
+router.use("/posts", postRoutes);
 
 router.route("/savepost").post(function(req, res) {
   console.log("We saved the post!", db);
