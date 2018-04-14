@@ -1,13 +1,13 @@
 const router = require("express").Router();
 const categoryRoutes = require("./categories");
-const tagRoutes = require("./tags");
+const tagRoutes = require("./posttags");
 const postRoutes = require("./posts");
 
 var db = require("../../models");
 
 // Live Athlete Forum routes
 router.use("/categories", categoryRoutes);
-router.use("/tags", tagRoutes);
+router.use("/posttags", tagRoutes);
 router.use("/posts", postRoutes);
 
 router.route("/savepost").post(function(req, res) {
