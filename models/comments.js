@@ -15,5 +15,9 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   );
+  comments.associate = function(models) {
+    comments.belongsTo(models.posts);
+    comments.belongsTo(models.users);
+  };
   return comments;
 };

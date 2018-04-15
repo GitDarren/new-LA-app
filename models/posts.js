@@ -7,14 +7,18 @@ module.exports = (sequelize, DataTypes) => {
     vote: DataTypes.STRING,
     userId: DataTypes.STRING,
     categoryId: DataTypes.STRING,
-    tagId: DataTypes.STRING,
-    commentId: DataTypes.STRING
+    tagId: DataTypes.STRING
     // FOREIGNKEY (categories);
   });
 
   posts.associate = function(models) {
-    // models.posts.belongsTo(models.userId);
+    models.posts.belongsTo(models.users);
     models.posts.belongsTo(models.categories);
+    models.posts.hasMany(models.comments);
+    models.posts.hasMany(models.posttags);
+
+    // models.posts.belongsTo(models.posttags);
+
     // posts.hasMany(models.tagId);
     // posts.hasMany(models.commentId);
   };

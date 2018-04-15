@@ -58,11 +58,14 @@ class Home extends Component {
       this.state
     );
     const newPost = {
-      id: 1,
+      id: 6,
       title: this.state.title,
-      description: this.state.description,
+      slug: "this is the slug",
       content: "this is the content",
-      slug: "this is the slug"
+      vote: 4,
+      userId: "1",
+      categoryId: "1",
+      tagId: "1"
     };
     API.savePost(newPost).then(responseFromBackend => {
       console.log(

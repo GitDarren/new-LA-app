@@ -3,11 +3,15 @@ const db = require("../models");
 // Defining methods for posttagsController
 module.exports = {
   findAll: function(req, res) {
-    db.posttags.findAll().then(result => {
-      console.log("We got this shit - posttags");
-      console.log(result);
-      res.send(result);
-    });
+    db.posttags
+      .findAll({
+        include: [db.posts]
+      })
+      .then(result => {
+        console.log("We got this shit - posttags");
+        console.log(result);
+        res.send(result);
+      });
   },
   findById: function(req, res) {
     db.posttags.findById(req.query.id).then(result => {

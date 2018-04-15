@@ -85,5 +85,9 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   );
+  users.associate = function(models) {
+    users.hasMany(models.posts);
+    users.hasMany(models.comments);
+  };
   return users;
 };

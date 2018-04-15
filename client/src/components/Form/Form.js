@@ -26,20 +26,22 @@ const Form = props => (
       </select>
 
       <h4>
-        <strong>Write yo shit Here!</strong>
+        <strong>Content</strong>
       </h4>
       <textarea
         className="form-control"
-        value={props.description}
-        name="description"
+        value={props.content}
+        name="content"
         onChange={props.handleInputChange}
         required
       />
-
+      <h5>
+        <strong>Tags</strong>
+      </h5>
       <input
         className="form-control"
-        value={props.topics}
-        name="topics"
+        value={props.posttags}
+        name="tags"
         onChange={props.handleInputChange}
         required
       />
