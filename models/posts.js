@@ -9,11 +9,12 @@ module.exports = (sequelize, DataTypes) => {
     categoryId: DataTypes.STRING,
     tagId: DataTypes.STRING,
     commentId: DataTypes.STRING
+    // FOREIGNKEY (categories);
   });
 
   posts.associate = function(models) {
-    posts.belongsTo(models.userId);
-    posts.belongsTo(models.categories);
+    // models.posts.belongsTo(models.userId);
+    models.posts.belongsTo(models.categories);
     // posts.hasMany(models.tagId);
     // posts.hasMany(models.commentId);
   };
