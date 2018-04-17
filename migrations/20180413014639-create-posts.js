@@ -24,10 +24,10 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       categoryId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
-      tagId: {
-        type: Sequelize.INTEGER
+      posttags: {
+        type: Sequelize.STRING
       },
       commentId: {
         type: Sequelize.INTEGER

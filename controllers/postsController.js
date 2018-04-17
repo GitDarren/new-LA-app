@@ -20,7 +20,10 @@ module.exports = {
       .create({
         title: req.body.title,
         slug: req.body.slug,
-        content: req.body.content
+        content: req.body.content,
+        URL: req.body.URL,
+        tagId: req.body.tagId,
+        categoryId: req.body.categoryId
       })
       .then(() => res.send("success"))
       .catch(err => {
@@ -34,7 +37,10 @@ module.exports = {
         {
           title: req.body.title,
           slug: req.body.slug,
-          content: req.body.content
+          content: req.body.content,
+          URL: req.body.URL,
+          tagId: req.body.tagId,
+          categoryId: req.body.categoryId
         },
         { where: { id: req.params.id } }
       )

@@ -7,15 +7,16 @@ module.exports = (sequelize, DataTypes) => {
     vote: DataTypes.STRING,
     userId: DataTypes.STRING,
     categoryId: DataTypes.STRING,
-    tagId: DataTypes.STRING
+    tagId: DataTypes.STRING,
+    URL: DataTypes.STRING
     // FOREIGNKEY (categories);
   });
 
   posts.associate = function(models) {
-    models.posts.belongsTo(models.users);
-    models.posts.belongsTo(models.categories);
-    models.posts.hasMany(models.comments);
-    models.posts.hasMany(models.posttags);
+    posts.belongsTo(models.users);
+    posts.belongsTo(models.categories);
+    posts.hasMany(models.comments);
+    posts.hasMany(models.posttags);
 
     // models.posts.belongsTo(models.posttags);
 
