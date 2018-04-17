@@ -95,14 +95,14 @@ class Home extends Component {
             </Jumbotron>
           </Col>
           <Col size="md-12">
-            <Panel title="Enter Your Blog Post" icon="newspaper-o">
+            <Panel title="Post to The Board" icon="">
               <Form
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
                 q={this.state.q}
                 title={this.state.title}
-                topics={this.state.topics}
-                description={this.state.description}
+                tagId={this.state.tagId}
+                content={this.state.content}
               />
             </Panel>
           </Col>

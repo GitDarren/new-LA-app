@@ -1,6 +1,7 @@
 import React from "react";
 
 console.log(this.state);
+
 const Form = props => (
   <form>
     <div className="form-group">
@@ -14,7 +15,20 @@ const Form = props => (
         onChange={props.handleInputChange}
         required
       />
-      <select name="category" onChange={props.handleInputChange} required>
+      <h4>
+        <strong>Link (https://example.com) - Optional</strong>
+      </h4>
+      <input
+        className="form-control"
+        value={props.URL}
+        name="URL"
+        onChange={props.handleInputChange}
+        required
+      />
+      <h4>
+        <strong>Category</strong>
+      </h4>
+      <select name="categoryId" onChange={props.handleInputChange} required>
         <option defaultValue={true} disabled>
           Select a category...
         </option>
@@ -40,8 +54,8 @@ const Form = props => (
       </h5>
       <input
         className="form-control"
-        value={props.posttags}
-        name="tags"
+        value={props.tagId}
+        name="tagId"
         onChange={props.handleInputChange}
         required
       />

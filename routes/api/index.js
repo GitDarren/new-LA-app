@@ -15,7 +15,7 @@ router.use("/users", userRouters);
 router.use("/comments", commentRouter);
 
 router.route("/savepost").post(function(req, res) {
-  console.log("We saved the post!", db);
+  console.log("We saved the post!");
   db.posts.create(req.body).then(confirmationFromDB => {
     console.log("We have confirmation", confirmationFromDB);
     res.json(confirmationFromDB);
