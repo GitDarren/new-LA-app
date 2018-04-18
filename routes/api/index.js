@@ -29,4 +29,20 @@ router.route("/forumfeed").get(function(req, res) {
   });
 });
 
+router.route("/forumfeed/:id").get(function(req, res) {
+  console.log(req.params);
+  db.posts.findById(req.params.id).then(oneResult => {
+    console.log("One post result", oneResult);
+    res.json(oneResult);
+  });
+});
+
+router.route("/createcomment").post(function(req, res) {
+  console.log("This is the req.body", req.body);
+  db.comments.create(req.body).then(responseFromDB => {
+    console.log("We have confirmation", responseFromDB);
+    res.json(responseFromDB);
+  });
+});
+
 module.exports = router;

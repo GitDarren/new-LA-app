@@ -23,5 +23,11 @@ export default {
   },
   getForumFeed: function(forumData) {
     return axios.get("/api/forumfeed", forumData);
+  },
+  getForumPost: function(id) {
+    return axios.get("/api/forumfeed/" + id);
+  },
+  createCommentPost: function(comment) {
+    return axios.post("/api/createcomment/", comment);
   }
 };

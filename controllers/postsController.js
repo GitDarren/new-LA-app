@@ -11,6 +11,8 @@ module.exports = {
   },
   findById: function(req, res) {
     db.posts.findById(req.query.id).then(result => {
+      console.log("We got the one post we need", req.query.id);
+      console.log(result);
       res.send(result);
     });
   },
