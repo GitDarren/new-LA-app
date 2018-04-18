@@ -22,10 +22,17 @@ class forumfeed extends Component {
     return (
       <div>
         <h1>Forum Feed</h1>
-        {this.state.posts.map(singledude => {
+        {this.state.posts.map(post => {
           return (
-            <div>
-              <h1>{singledude.title}</h1>
+            <div key={post.id}>
+              <h1>{post.title}</h1>
+              <p>{post.content}</p>
+              <p>{post.URL}</p>
+              <p>{post.userId}</p>
+              <p>{post.tagId}</p>
+              <p>{post.categoryId}</p>
+              <p>{post.createdAt}</p>
+              <p>{post.vote}</p>
             </div>
           );
         })}
