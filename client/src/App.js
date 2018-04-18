@@ -6,7 +6,7 @@ import Post from "./pages/Post";
 import Saved from "./pages/Saved";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
-import Postthread from "./pages/Post-Thread/PostThread";
+import PostThread from "./pages/PostThread";
 
 const App = () => (
   <Router>
@@ -16,7 +16,7 @@ const App = () => (
         {/* <Route exact path="/" component={Home} /> */}
         <Route exact path="/" component={Post} />
         <Route exact path="/forumfeed" component={forumfeed} />
-        <Route exact path="/postthread/:id" component={Postthread} />
+        <Route exact path="/PostThread/:id" component={PostThread} />
         <Route component={NoMatch} />
       </Switch>
     </div>

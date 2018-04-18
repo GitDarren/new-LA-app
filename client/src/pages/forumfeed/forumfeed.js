@@ -7,7 +7,7 @@ import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { Link } from "react-router-dom";
 
-class forumfeed extends Component {
+class ForumFeed extends Component {
   state = {
     posts: []
   };
@@ -44,4 +44,4 @@ class forumfeed extends Component {
   }
 }
 
-export default forumfeed;
+export default ForumFeed;

@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     posts.belongsTo(models.users);
     posts.belongsTo(models.categories);
     posts.hasMany(models.comments);
-    posts.hasMany(models.posttags);
+    posts.hasMany(models.tagId);
 
     // models.posts.belongsTo(models.posttags);
 

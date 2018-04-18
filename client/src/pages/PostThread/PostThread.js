@@ -6,7 +6,7 @@ import Footer from "../../components/Footer";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 
-class forumfeed extends Component {
+class postThread extends Component {
   state = {
     post: [],
     comment: ""
@@ -65,4 +65,4 @@ class forumfeed extends Component {
   }
 }
 
-export default forumfeed;
+export default postThread;

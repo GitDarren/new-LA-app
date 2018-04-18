@@ -14,6 +14,9 @@ module.exports = {
       slug: {
         type: Sequelize.STRING
       },
+      URL: {
+        type: Sequelize.STRING
+      },
       content: {
         type: Sequelize.STRING
       },
@@ -26,7 +29,7 @@ module.exports = {
       categoryId: {
         type: Sequelize.STRING
       },
-      posttags: {
+      tagId: {
         type: Sequelize.STRING
       },
       commentId: {

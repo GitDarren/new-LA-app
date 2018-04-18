@@ -9,7 +9,8 @@ module.exports = {
         content: "comment 1",
         createdAt: new Date(),
         updatedAt: new Date(),
-        userId: 1
+        userId: 1,
+        postId: 1
       },
       {
         id: 2,
@@ -17,7 +18,8 @@ module.exports = {
         content: "comment 2",
         createdAt: new Date(),
         updatedAt: new Date(),
-        userId: 2
+        userId: 2,
+        postId: 2
       },
       {
         id: 3,
@@ -25,7 +27,8 @@ module.exports = {
         content: "comment 3",
         createdAt: new Date(),
         updatedAt: new Date(),
-        userId: 3
+        userId: 3,
+        postId: 3
       }
     ]);
   },
