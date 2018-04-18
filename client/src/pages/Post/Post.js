@@ -11,7 +11,7 @@ class Post extends Component {
     title: "",
     content: "",
     tagId: "",
-    categoryId: "Baseball",
+    categoryId: "",
     URL: ""
   };
 

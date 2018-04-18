@@ -5,8 +5,9 @@ import Form from "../../components/Form";
 import Footer from "../../components/Footer";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
+import { Link } from "react-router-dom";
 
-class forumfeed extends Component {
+class ForumFeed extends Component {
   state = {
     posts: []
   };
@@ -25,7 +26,9 @@ class forumfeed extends Component {
         {this.state.posts.map(post => {
           return (
             <div key={post.id}>
-              <h1>{post.title}</h1>
+              <Link to={"/postthread/" + post.id}>
+                <h1>{post.title}</h1>
+              </Link>
               <p>{post.content}</p>
               <p>{post.URL}</p>
               <p>{post.userId}</p>
@@ -41,4 +44,4 @@ class forumfeed extends Component {
   }
 }
 
-export default forumfeed;
+export default ForumFeed;

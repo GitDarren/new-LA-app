@@ -5,7 +5,9 @@ module.exports = (sequelize, DataTypes) => {
     {
       slug: DataTypes.STRING,
       content: DataTypes.STRING,
-      vote: DataTypes.STRING
+      vote: DataTypes.STRING,
+      userId: DataTypes.STRING,
+      postId: DataTypes.STRING
     },
     {
       classMethods: {

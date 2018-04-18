@@ -1,14 +1,14 @@
 "use strict";
 module.exports = (sequelize, DataTypes) => {
-  var posttags = sequelize.define("posttags", {
+  var tagId = sequelize.define("tagId", {
     title: DataTypes.STRING,
     slug: DataTypes.STRING
   });
 
-  posttags.associate = function(models) {
-    posttags.belongsToMany(models.posts, {
+  tagId.associate = function(models) {
+    tagId.belongsToMany(models.posts, {
       through: "posttagsjointable"
     });
   };
-  return posttags;
+  return tagId;
 };
