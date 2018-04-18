@@ -11,7 +11,7 @@ class Post extends Component {
     title: "",
     content: "",
     tagId: "",
-    categoryId: "",
+    categoryId: "Baseball",
     URL: ""
   };
 
@@ -32,7 +32,7 @@ class Post extends Component {
       this.state
     );
     const newPost = {
-      id: 8,
+      // id: 12,
       title: this.state.title,
       slug: "this is the slug",
       content: this.state.content,
@@ -50,6 +50,7 @@ class Post extends Component {
   };
 
   render() {
+    console.log("This is the state", this.state);
     return (
       <Container>
         <Row>

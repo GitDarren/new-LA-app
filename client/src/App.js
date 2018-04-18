@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
+import forumfeed from "./pages/forumfeed";
 import Post from "./pages/Post";
 import Saved from "./pages/Saved";
 import NoMatch from "./pages/NoMatch";
@@ -11,9 +12,9 @@ const App = () => (
     <div>
       <Nav />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/Post" component={Post} />
-        <Route exact path="/saved" component={Saved} />
+        {/* <Route exact path="/" component={Home} /> */}
+        <Route exact path="/" component={Post} />
+        <Route exact path="/forumfeed" component={forumfeed} />
         <Route component={NoMatch} />
       </Switch>
     </div>
