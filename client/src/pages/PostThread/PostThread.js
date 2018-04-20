@@ -5,6 +5,7 @@ import Form from "../../components/Form";
 import Footer from "../../components/Footer";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
+import "./postThread.css";
 
 class postThread extends Component {
   state = {
@@ -47,20 +48,27 @@ class postThread extends Component {
     console.log("This is the state", this.state);
     return (
       <div>
-        <div>
-          <h1>Thread Detail</h1>
-          <h1>{this.state.post.title}</h1>
-          <p>{this.state.post.content}</p>
-          <p>{this.state.post.URL}</p>
-          <p>{this.state.post.userId}</p>
-          <p>{this.state.post.tagId}</p>
-          <p>{this.state.post.categoryId}</p>
+        <div className="postDiv">
+          <h1 className="headerDiv">{this.state.post.title}</h1>
           <p>{this.state.post.createdAt}</p>
-          <p>{this.state.post.vote}</p>
+          {/* <h1 className="postTitle">{this.state.post.title}</h1> */}
+          <p>{this.state.post.content}</p>
+          <p> by User #{this.state.post.userId}</p>
+
+          <ul className="tagsDiv">
+            <li>Tags: {this.state.post.tagId} </li>
+            <li>Category: {this.state.post.categoryId}</li>
+            {/* <p>Category: {post.categoryId}</p> */}
+          </ul>
+          <p>Votes: {this.state.post.vote}</p>
+          <p>{this.state.post.URL}</p>
         </div>
 
-        <input type="text" onChange={this.handleCommentInput} />
-        <button onClick={this.handleCommentSubmit}>Add Comment!</button>
+        <div className="commentDiv">
+          <h2 className="commentTitle">Post a comment!</h2>
+          <input type="text" onChange={this.handleCommentInput} />
+          <button onClick={this.handleCommentSubmit}>Add Comment!</button>
+        </div>
       </div>
     );
   }

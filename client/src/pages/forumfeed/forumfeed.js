@@ -6,6 +6,7 @@ import Footer from "../../components/Footer";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
 import { Link } from "react-router-dom";
+import "./forumfeed.css";
 
 class ForumFeed extends Component {
   state = {
@@ -21,21 +22,29 @@ class ForumFeed extends Component {
   render() {
     console.log("This is the state", this.state);
     return (
-      <div>
-        <h1>Forum Feed</h1>
+      <div className="forumDiv">
+        <div className="headerDiv">
+          <h1>Forum Feed</h1>
+        </div>
         {this.state.posts.map(post => {
           return (
-            <div key={post.id}>
+            <div className="postDiv" key={post.id}>
               <Link to={"/postthread/" + post.id}>
-                <h1>{post.title}</h1>
+                <h1 className="postTitle">
+                  {post.title} <span className="urlSpan">{post.URL}</span>
+                </h1>
               </Link>
-              <p>{post.content}</p>
-              <p>{post.URL}</p>
-              <p>{post.userId}</p>
-              <p>{post.tagId}</p>
-              <p>{post.categoryId}</p>
-              <p>{post.createdAt}</p>
-              <p>{post.vote}</p>
+              {/* <p>{post.content}</p> */}
+
+              <p>
+                by User #{post.userId} <span>On {post.createdAt}</span>
+              </p>
+              <ul className="tagsDiv">
+                <li>Tags: {post.tagId} </li>
+                <li>Category: {post.categoryId}</li>
+                {/* <p>Category: {post.categoryId}</p> */}
+              </ul>
+              <p>Votes: {post.vote}</p>
             </div>
           );
         })}
