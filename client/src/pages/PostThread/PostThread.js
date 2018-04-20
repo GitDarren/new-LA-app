@@ -22,6 +22,8 @@ class postThread extends Component {
         this.setState({ post: responseFromDB.data });
       }
     );
+
+    console.log("this is the postId:", this.props.postsId);
   }
 
   handleCommentInput = e => {
@@ -31,7 +33,6 @@ class postThread extends Component {
 
   handleCommentSubmit = e => {
     const comment = {
-      slug: "",
       content: this.state.comment,
       vote: 0,
       userId: 2,
