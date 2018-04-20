@@ -87,7 +87,7 @@ class Home extends Component {
           <Col size="md-12">
             <Jumbotron>
               <h1 className="text-center">
-                <strong>(ReactJS) New York Times Article Scrubber</strong>
+                <strong />
               </h1>
               <h2 className="text-center">
                 Search for and save articles of interest.
@@ -107,29 +107,6 @@ class Home extends Component {
             </Panel>
           </Col>
         </Row>
-        {/* <Row>
-          <Col size="md-12">
-            <Panel title="Results">
-              {this.state.articles.length ? (
-                <List>
-                  {this.state.articles.map(article => (
-                    <Article
-                      key={article._id}
-                      _id={article._id}
-                      title={article.headline.main}
-                      url={article.web_url}
-                      date={article.pub_date}
-                      handleClick={this.handleArticleSave}
-                      buttonText="Save Article"
-                    />
-                  ))}
-                </List>
-              ) : (
-                <h2 className="text-center">{this.state.message}</h2>
-              )}
-            </Panel>
-          </Col>
-        </Row> */}
         <Footer />
       </Container>
     );

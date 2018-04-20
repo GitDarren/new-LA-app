@@ -37,7 +37,7 @@ class Saved extends Component {
           <Col size="md-12">
             <Jumbotron>
               <h1 className="text-center">
-                <strong>(ReactJS) New York Times Article Scrubber</strong>
+                <strong></strong>
               </h1>
               <h2 className="text-center">
                 Search for and save articles of interest.
